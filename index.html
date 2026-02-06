@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecom Stack LLC - Scale Your Brand</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Config for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6', // Teal
+                            600: '#0d9488',
+                            900: '#134e4a',
+                        },
+                        dark: {
+                            900: '#0f172a', // Slate 900
+                            800: '#1e293b', // Slate 800
+                            950: '#020617', // Deepest
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #2dd4bf, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glassmorphism */
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-10 h-10 bg-gradient-to-br from-brand-500 to-blue-600 rounded-xl flex items-center justify-center text-white font-bold shadow-lg shadow-brand-500/20">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-white text-xl font-bold tracking-tight">Ecom Stack <span class="text-brand-500">LLC</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-slate-300 hover:text-brand-400 font-medium transition-colors">Solutions</a>
+                    <a href="#process" class="text-slate-300 hover:text-brand-400 font-medium transition-colors">Methodology</a>
+                    <a href="#results" class="text-slate-300 hover:text-brand-400 font-medium transition-colors">Results</a>
+                    <a href="#contact" class="bg-brand-600 hover:bg-brand-500 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg shadow-brand-500/20 hover:scale-105">
+                        Book Strategy Call
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-900 border-b border-slate-800 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#services" class="block px-3 py-3 text-slate-300 hover:text-white hover:bg-slate-800 rounded-md text-base font-medium">Solutions</a>
+                <a href="#process" class="block px-3 py-3 text-slate-300 hover:text-white hover:bg-slate-800 rounded-md text-base font-medium">Methodology</a>
+                <a href="#results" class="block px-3 py-3 text-slate-300 hover:text-white hover:bg-slate-800 rounded-md text-base font-medium">Results</a>
+                <a href="#contact" class="block mt-4 w-full text-center bg-brand-600 text-white px-3 py-3 rounded-md text-base font-bold">Book Strategy Call</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-dark-950 pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-slate-700 mb-8">
+                <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
+                <span class="text-slate-300 text-sm font-medium tracking-wide uppercase">Accepting New Partners for Q4</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                Architecting the Future of <br />
+                <span class="text-gradient">Digital Commerce</span>
+            </h1>
+            
+            <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-slate-400 mb-10 leading-relaxed">
+                Ecom Stack LLC combines proprietary data analytics with creative firepower to scale direct-to-consumer brands beyond the 8-figure mark.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                <a href="#contact" class="bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-xl shadow-brand-500/25 flex items-center justify-center gap-2 hover:-translate-y-1">
+                    Start Scaling Now <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="#services" class="bg-slate-800/50 hover:bg-slate-800 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all border border-slate-700 backdrop-blur-sm">
+                    View Our Stack
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto border-t border-slate-800/50 pt-10">
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">$120M+</div>
+                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Client Revenue</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">4.5x</div>
+                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Avg. ROAS</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">85+</div>
+                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Brands Scaled</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">24/7</div>
+                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Optimization</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-brand-600 font-bold tracking-wider text-sm uppercase">Our Expertise</span>
+                <h2 class="mt-3 text-3xl md:text-5xl font-bold text-slate-900">The Full Stack Solution</h2>
+                <p class="mt-4 text-slate-600 max-w-2xl mx-auto text-lg">We don't just run ads. We build comprehensive ecosystems designed for sustainable, long-term profitability.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group fade-up">
+                    <div class="w-14 h-14 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="bar-chart-2" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Data Intelligence</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Turn raw numbers into actionable insights. We implement advanced tracking pixels and custom dashboards.</p>
+                    <a href="#contact" class="text-blue-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Explore Data <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group fade-up">
+                    <div class="w-14 h-14 rounded-xl bg-brand-50 text-brand-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="zap" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Performance Marketing</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">High-velocity testing across Meta, TikTok, and Google to find your winning creatives faster.</p>
+                    <a href="#contact" class="text-brand-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Scale Ads <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group fade-up">
+                    <div class="w-14 h-14 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="shopping-bag" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">CRO & Funnels</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Traffic is useless if it doesn't convert. We optimize landing pages to maximize Average Order Value.</p>
+                    <a href="#contact" class="text-purple-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Boost Conversion <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group fade-up">
+                    <div class="w-14 h-14 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="mail" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Retention Systems</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Email and SMS flows that turn one-time buyers into loyal brand advocates. Increase LTV automatically.</p>
+                    <a href="#contact" class="text-orange-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Keep Customers <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group fade-up">
+                    <div class="w-14 h-14 rounded-xl bg-pink-50 text-pink-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="pen-tool" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Creative Studio</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Direct response video editing and graphic design that stops the scroll and drives clicks.</p>
+                    <a href="#contact" class="text-pink-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">See Portfolio <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 group fade-up">
+                    <div class="w-14 h-14 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="globe" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Global Expansion</h3>
+                    <p class="text-slate-600 mb-6 leading-relaxed">Ready to go international? We handle localization, currency strategy, and cross-border logistics.</p>
+                    <a href="#contact" class="text-indigo-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">Go Global <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us / Feature Split -->
+    <section class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-20 items-center">
+                
+                <!-- Left Content -->
+                <div class="mb-12 lg:mb-0 fade-up">
+                    <span class="text-brand-600 font-bold tracking-wider text-sm uppercase">The Ecom Stack Advantage</span>
+                    <h2 class="mt-3 text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+                        Data-Driven Decisions, <br />
+                        <span class="text-brand-600">Human-Centric Strategy</span>
+                    </h2>
+                    <p class="text-slate-600 text-lg mb-8 leading-relaxed">
+                        Most agencies treat you like a number. At Ecom Stack LLC, we integrate into your Slack channels, join your weekly standups, and fight for your margins as if they were our own.
+                    </p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-green-100 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4 text-green-600"></i></div>
+                            <span class="text-slate-700 font-medium">Proprietary "Stack" Audit Framework</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-green-100 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4 text-green-600"></i></div>
+                            <span class="text-slate-700 font-medium">Daily Ad Account Optimization</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 bg-green-100 p-1 rounded-full"><i data-lucide="check" class="w-4 h-4 text-green-600"></i></div>
+                            <span class="text-slate-700 font-medium">Direct Access to Senior Media Buyers</span>
+                        </li>
+                    </ul>
+
+                    <a href="#contact" class="inline-flex items-center text-brand-700 font-bold hover:text-brand-500 transition-colors">
+                        See how we work <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                    </a>
+                </div>
+
+                <!-- Right Visuals -->
+                <div class="relative fade-up">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-brand-500 to-blue-600 rounded-2xl opacity-20 blur-lg"></div>
+                    <div class="relative bg-slate-900 rounded-2xl p-8 border border-slate-800 text-white shadow-2xl">
+                        <div class="flex items-center justify-between mb-8 border-b border-slate-700 pb-4">
+                            <div>
+                                <div class="text-sm text-slate-400">Total Revenue (YTD)</div>
+                                <div class="text-3xl font-bold text-white">$4,285,920</div>
+                            </div>
+                            <div class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+                                <i data-lucide="trending-up" class="w-4 h-4"></i> +124%
+                            </div>
+                        </div>
+                        
+                        <!-- Mock Chart Bars -->
+                        <div class="flex items-end justify-between gap-2 h-48">
+                            <div class="w-full bg-slate-800 rounded-t-sm h-[40%] hover:bg-brand-500 transition-colors duration-500"></div>
+                            <div class="w-full bg-slate-800 rounded-t-sm h-[55%] hover:bg-brand-500 transition-colors duration-500"></div>
+                            <div class="w-full bg-slate-800 rounded-t-sm h-[45%] hover:bg-brand-500 transition-colors duration-500"></div>
+                            <div class="w-full bg-slate-800 rounded-t-sm h-[70%] hover:bg-brand-500 transition-colors duration-500"></div>
+                            <div class="w-full bg-slate-800 rounded-t-sm h-[60%] hover:bg-brand-500 transition-colors duration-500"></div>
+                            <div class="w-full bg-slate-800 rounded-t-sm h-[85%] hover:bg-brand-500 transition-colors duration-500"></div>
+                            <div class="w-full bg-brand-500 rounded-t-sm h-[100%] shadow-[0_0_15px_rgba(20,184,166,0.5)]"></div>
+                        </div>
+                        <div class="flex justify-between mt-4 text-xs text-slate-500 font-mono">
+                            <span>MON</span>
+                            <span>TUE</span>
+                            <span>WED</span>
+                            <span>THU</span>
+                            <span>FRI</span>
+                            <span>SAT</span>
+                            <span>SUN</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section (Dark) -->
+    <section id="process" class="py-24 bg-dark-950 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 fade-up">
+                <span class="text-brand-500 font-bold tracking-wider text-sm uppercase">Methodology</span>
+                <h2 class="mt-3 text-3xl md:text-5xl font-bold">The Growth Engine</h2>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">We don't rely on luck. We rely on a 4-step cyclical process of continuous improvement.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-brand-500 transition-colors fade-up">
+                    <div class="text-6xl font-black text-slate-800 mb-4">01</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Audit & Analyze</h3>
+                    <p class="text-slate-400 text-sm">Deep dive into your historical data to find leaks in your funnel.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-brand-500 transition-colors fade-up" style="transition-delay: 100ms;">
+                    <div class="text-6xl font-black text-slate-800 mb-4">02</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Construct</h3>
+                    <p class="text-slate-400 text-sm">Building the creative assets, landing pages, and tracking infrastructure.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-brand-500 transition-colors fade-up" style="transition-delay: 200ms;">
+                    <div class="text-6xl font-black text-slate-800 mb-4">03</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Launch</h3>
+                    <p class="text-slate-400 text-sm">Deploying campaigns across channels with aggressive budget management.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-800 hover:border-brand-500 transition-colors fade-up" style="transition-delay: 300ms;">
+                    <div class="text-6xl font-black text-slate-800 mb-4">04</div>
+                    <h3 class="text-xl font-bold text-white mb-2">Iterate</h3>
+                    <p class="text-slate-400 text-sm">Rapid testing of new angles based on performance data. Rinse and repeat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="results" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900">Partner Success Stories</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col fade-up">
+                    <div class="flex gap-1 mb-6 text-yellow-400">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-8 flex-grow leading-relaxed">"Ecom Stack LLC isn't an agency, they are partners. They took our supplement brand from $50k/mo to $450k/mo in just 9 months. The creative team is world-class."</p>
+                    <div class="flex items-center gap-4 mt-auto border-t border-slate-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-600">JD</div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-sm">James Doyle</div>
+                            <div class="text-xs text-slate-500">CEO, Vitality Labs</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col fade-up" style="transition-delay: 100ms;">
+                    <div class="flex gap-1 mb-6 text-yellow-400">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-8 flex-grow leading-relaxed">"We struggled with high CPAs on Facebook for years. The team came in, restructured our account, and dropped our CPA by 40% within the first 30 days."</p>
+                    <div class="flex items-center gap-4 mt-auto border-t border-slate-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-600">SK</div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-sm">Sarah Klein</div>
+                            <div class="text-xs text-slate-500">Founder, Mode Fashion</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 flex flex-col fade-up" style="transition-delay: 200ms;">
+                    <div class="flex gap-1 mb-6 text-yellow-400">
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                        <i data-lucide="star" class="fill-current w-5 h-5"></i>
+                    </div>
+                    <p class="text-slate-700 italic mb-8 flex-grow leading-relaxed">"Their email flows alone added an extra 15% to our bottom line revenue without spending a dime more on ads. Highly recommended."</p>
+                    <div class="flex items-center gap-4 mt-auto border-t border-slate-100 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-600">MR</div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-sm">Mike Ross</div>
+                            <div class="text-xs text-slate-500">CMO, TechGear</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-dark-900 relative overflow-hidden">
+        <!-- Decorative blobs -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-20">
+                
+                <!-- Contact Info -->
+                <div class="mb-12 lg:mb-0 text-white fade-up">
+                    <span class="text-brand-500 font-bold tracking-wider text-sm uppercase">Let's Talk Business</span>
+                    <h2 class="mt-3 text-3xl md:text-5xl font-bold mb-6">Ready to Stack <br /> Your Wins?</h2>
+                    <p class="text-slate-400 mb-10 leading-relaxed text-lg">
+                        We only work with brands we believe we can scale. Fill out the form to see if you qualify for a free audit and strategy session.
+                    </p>
+                </div>
+
+                <!-- Form -->
+                <div class="bg-white p-8 rounded-2xl shadow-2xl fade-up">
+                    <form id="contactForm" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Name</label>
+                                <input type="text" required placeholder="Jane Doe" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Website URL</label>
+                                <input type="text" placeholder="brand.com" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all">
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Email</label>
+                            <input type="email" required placeholder="jane@brand.com" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all">
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Monthly Revenue</label>
+                            <select class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all">
+                                <option>Less than $10k</option>
+                                <option>$10k - $50k</option>
+                                <option>$50k - $100k</option>
+                                <option>$100k+</option>
+                            </select>
+                        </div>
+
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Message</label>
+                            <textarea rows="4" placeholder="Tell us about your biggest bottleneck..." class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-4 rounded-lg transition-all shadow-lg shadow-brand-500/20 transform active:scale-95">
+                            Submit Application
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-950 border-t border-slate-900 py-12 text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <span class="text-white font-bold text-lg">Ecom Stack LLC</span>
+                </div>
+
+                <div class="text-sm">
+                    &copy; 2026 Ecom Stack LLC. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Form Handling
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button');
+            const originalText = btn.innerText;
+            
+            btn.innerText = 'Sending...';
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                btn.innerText = 'Application Sent!';
+                btn.classList.remove('bg-brand-600', 'hover:bg-brand-700');
+                btn.classList.add('bg-green-600', 'hover:bg-green-700');
+                form.reset();
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.add('bg-brand-600', 'hover:bg-brand-700');
+                    btn.classList.remove('bg-green-600', 'hover:bg-green-700', 'opacity-75', 'cursor-not-allowed');
+                }, 3000);
+            }, 1500);
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
